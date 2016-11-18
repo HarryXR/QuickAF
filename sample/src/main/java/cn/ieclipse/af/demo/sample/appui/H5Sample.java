@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015-2016 QuickAF
+ * Copyright (C) 2015-2016 QuickAF2
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,24 +15,30 @@
  */
 package cn.ieclipse.af.demo.sample.appui;
 
-import cn.ieclipse.af.demo.sample.ButtonListFragment;
-import cn.ieclipse.af.demo.sample.orm.AormActivity;
-import cn.ieclipse.af.demo.sample.utils.DialogsActivity;
+import android.view.View;
+
+import cn.ieclipse.af.demo.R;
+import cn.ieclipse.af.demo.common.ui.H5Activity;
+import cn.ieclipse.af.demo.sample.SampleBaseFragment;
 
 /**
  * Description
  *
  * @author Jamling
  */
-public class TabUtils extends ButtonListFragment {
-
+public class H5Sample extends SampleBaseFragment {
     @Override
-    protected CharSequence getTitle() {
-        return "Utils";
+    protected int getContentLayout() {
+        return R.layout.sample_activity_h5;
     }
 
     @Override
-    protected Class[] getActivities() {
-        return new Class[]{DialogsActivity.class, AormActivity.class};
+    public void onClick(View v) {
+        if (v == btn1) {
+            String title = et1.getText().toString();
+            String url = et2.getText().toString();
+            startActivity(H5Activity.create(getActivity(), url, title));
+        }
+        super.onClick(v);
     }
 }

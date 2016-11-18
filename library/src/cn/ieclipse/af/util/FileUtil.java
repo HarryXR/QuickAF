@@ -1,6 +1,7 @@
 package cn.ieclipse.af.util;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import java.io.File;
@@ -33,9 +34,17 @@ public final class FileUtil {
         String name = f.getName();
         return name;
     }
+
+    public static String getBaseName(@NonNull String path) {
+        int pos = path.lastIndexOf('.');
+        if (pos >= 0) {
+            return path.substring(0, pos);
+        }
+        return path;
+    }
     
     public static String getExtension(String path) {
-        String name = getName(path);
+        String name = path;//getName(path);
         int pos = name.lastIndexOf('.');
         if (pos >= 0) {
             return name.substring(pos + 1);

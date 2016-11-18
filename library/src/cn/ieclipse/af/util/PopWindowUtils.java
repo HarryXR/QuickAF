@@ -164,8 +164,8 @@ public class PopWindowUtils {
             // right
             int[] local = new int[2];
             clickView.getLocationOnScreen(local);
-            mPopupWindows.showAtLocation(clickView, Gravity.NO_GRAVITY, local[0] + clickView.getMeasuredWidth(),
-                local[1]);
+            mPopupWindows.showAtLocation(clickView, Gravity.NO_GRAVITY, local[0]+clickView.getMeasuredWidth(),
+                local[1]+clickView.getMeasuredHeight());
         }
         return mPopupWindows;
     }
